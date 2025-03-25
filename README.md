@@ -1,13 +1,13 @@
-# OTP Verification using Python
+# Bulk OTP Verification using Python
 
 ## Description
-This is a simple Python script to generate and send a One-Time Password (OTP) via email for verification. The script uses the `smtplib` module to send emails through Gmail's SMTP server and the `email.mime` module to format the email message. A randomly generated 4-digit OTP is sent to the user's email, which they must enter correctly to complete verification.
+This Python script allows sending One-Time Passwords (OTPs) to multiple email recipients for verification. It uses the `smtplib` module to send emails via Gmail's SMTP server and the `email.mime` module to format email messages. Each recipient receives a unique OTP that must be entered correctly for verification.
 
 ## Features
-- Generates a random 4-digit OTP.
-- Sends the OTP via email.
-- Validates the OTP entered by the user.
-- Secure login using an app password.
+- Sends OTPs to multiple recipients.
+- Generates a unique 4-digit OTP for each recipient.
+- Secure email transmission using TLS.
+- Validates OTP input from users.
 
 ## Requirements
 - Python 3.x
@@ -34,18 +34,22 @@ This is a simple Python script to generate and send a One-Time Password (OTP) vi
    ```sh
    python otp_verification.py
    ```
-4. Enter the recipient's email when prompted.
-5. Enter the OTP received in the email to verify.
+4. Enter the number of recipients.
+5. Input email addresses one by one.
+6. Each recipient will receive a unique OTP.
+7. Enter the OTP received in the email to validate.
 
 ## Code Explanation
-1. **Generate OTP:** A random 4-digit OTP is generated using `random.randint(1111, 9999)`.
-2. **Email Configuration:** The script uses `smtplib.SMTP` to connect to Gmail's SMTP server (`smtp.gmail.com` on port 587).
-3. **Sending OTP:** The OTP is sent as a plain text email.
-4. **User Validation:** The user enters the OTP received via email, and the script validates it.
+1. **Collect Emails:** The script prompts the user to enter multiple email addresses.
+2. **Generate OTP:** A random 4-digit OTP is generated using `random.randint(1111, 9999)`.
+3. **Email Configuration:** The script connects to Gmail's SMTP server (`smtp.gmail.com` on port 587) using `smtplib.SMTP`.
+4. **Sending OTP:** Each email address receives a unique OTP in a formatted email.
+5. **User Validation:** The user must enter the received OTP for verification.
 
 ## Security Note
 - Never hardcode credentials in the script. Use environment variables or a config file.
 - Use an **App Password** instead of your main Gmail password for security.
 - Enable **Two-Factor Authentication (2FA)** on your Gmail account.
+
 
 
